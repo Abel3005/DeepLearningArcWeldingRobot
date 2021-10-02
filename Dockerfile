@@ -5,7 +5,7 @@ WORKDIR /root
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV NVIDIA_DRIVER_CAPABILITIES=all
 
-RUN apt update
+RUN apt update && apt install vim
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
