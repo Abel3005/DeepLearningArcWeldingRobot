@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  ros_core_server:
+    build: .
+    command: /bin/bash
+
+    environment:
+      - DISPLAY=${DISPLAY}
+    
+    volumes:
+      #for GUI
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      #access device at host
+      - /dev:/dev
+      #workspace
+      - ./workspace:/root/workspace
+
+    working_dir: /root/workspace
+
+
+    #--privileged
+    privileged: true
+    
+    #--runtime=nvidia
+    runtime: nvidia
+    
+    #--net=host
+    network_mode: host
