@@ -366,4 +366,8 @@ tags
 .history
 .ionide
 
+
+# Ignore configure file of remote container
+.devcontainer
+
 # End of https://www.toptal.com/developers/gitignore/api/git,ros,ros2,visualstudiocode,linux,c++,python,vim,cuda,emacs
