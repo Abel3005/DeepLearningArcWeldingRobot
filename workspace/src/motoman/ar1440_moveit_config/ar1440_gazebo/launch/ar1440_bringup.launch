@@ -1,0 +1,17 @@
+<launch>
+
+
+  <!-- Launch Gazebo  -->
+  <include file="$(find ar1440_gazebo)/launch/ar1440_world.launch" />   
+
+  <!-- ros_control ar1440 arm launch file -->
+  <include file="$(find ar1440_gazebo)/launch/ar1440_gazebo_states.launch" />   
+
+  <!-- ros_control position control dof arm launch file -->
+  <!--<include file="$(find ar1440_gazebo)/launch/ar1440_gazebo_position.launch" />  -->
+
+  <!-- ros_control trajectory control dof arm launch file -->
+  <include file="$(find ar1440_gazebo)/launch/ar1440_trajectory_controller.launch" />    
+
+
+</launch>

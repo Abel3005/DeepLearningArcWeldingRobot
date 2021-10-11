@@ -1,0 +1,20 @@
+<launch>
+
+
+  <!-- Launch Gazebo  -->
+  <include file="$(find ar1440_gazebo)/launch/ar1440_world.launch" />   
+
+  <!-- ros_control ar1440 launch file -->
+  <include file="$(find ar1440_gazebo)/launch/ar1440_gazebo_states.launch" />   
+
+  <!-- ros_control position control ar1440 launch file -->
+  <!--<include file="$(find ar1440_gazebo)/launch/ar1440_gazebo_position.launch" />  -->
+
+  <!-- ros_control trajectory control ar01440 launch file -->
+  <include file="$(find ar1440_gazebo)/launch/ar1440_trajectory_controller.launch" />    
+
+  <!-- moveit launch file -->
+  <include file="$(find ar1440_config)/launch/moveit_planning_execution.launch" />    
+
+
+</launch>

@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<robot name="ar1440" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find ar1440_description)/urdf/ar1440.xacro" /> 
+  <xacro:motoman_ar1440 prefix="" />
+
+  <xacro:macro name="material_yaskawa_blue">
+    <visual>
+      <material>
+        <ambient>0.0 0.3254902 0.9352941 1</ambient>
+        <diffuse>0.0 0.3254902 0.9352941 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+      </material>
+    </visual>
+  </xacro:macro>
+
+    <gazebo reference="base_link">
+        <xacro:material_yaskawa_blue />
+    </gazebo>
+    <gazebo reference="link_1_s">
+        <xacro:material_yaskawa_blue />
+    </gazebo>
+    <gazebo reference="link_2_l">
+        <xacro:material_yaskawa_blue />
+    </gazebo>
+    <gazebo reference="link_3_u">
+        <xacro:material_yaskawa_blue />
+    </gazebo>
+    <gazebo reference="link_4_r">
+        <xacro:material_yaskawa_blue />
+    </gazebo>
+    <gazebo reference="link_5_b">
+        <xacro:material_yaskawa_blue />
+    </gazebo>
+    <gazebo reference="link_6_t">
+        <xacro:material_yaskawa_blue />
+    </gazebo>
+    <transmission name="trans_joint_1_s">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_1_s">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_1_s_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_l">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_l">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_l_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_u">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_u">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_u_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_4_r">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_4_r">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_4_r_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_5_b">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_5_b">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_5_b_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_6_t">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_6_t">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_6_t_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/ar1440</robotNamespace>
+        </plugin>
+    </gazebo>
+
+</robot>
+

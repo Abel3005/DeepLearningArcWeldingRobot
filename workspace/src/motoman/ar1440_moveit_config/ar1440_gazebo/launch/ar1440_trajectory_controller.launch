@@ -1,0 +1,7 @@
+<launch>
+	<rosparam file="$(find ar1440_gazebo)/config/trajectory_control.yaml" command="load"/>
+
+  <node name="ar1440_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/ar1440" args="ar1440_joint_controller gripper_controller"/>
+
+</launch>
