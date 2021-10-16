@@ -15,6 +15,7 @@ RUN apt update && apt install -y vim curl \
         python-catkin-tools \
         #installing realsense package
         ros-melodic-realsense2-camera \
+        ros-melodic-rgbd-launch \
         #installing moveit package
         ros-melodic-moveit \
         #for installing motoman. this is one of dependency package
