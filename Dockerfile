@@ -5,6 +5,11 @@ WORKDIR /root
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV NVIDIA_DRIVER_CAPABILITIES=all
 
+#setting ros version
+ENV ROS_DISTRO=melodic
+
+COPY ./ros_entrypoint.sh /
+
 RUN apt update && apt install -y vim curl \
         #for adding command catkin to install moveit
         python-catkin-tools \
@@ -15,12 +20,12 @@ RUN apt update && apt install -y vim curl \
         #for installing motoman. this is one of dependency package
         ros-melodic-industrial-core
 
-WORKDIR /root/workspace
+WORKDIR /root/ws
 
 #prepare to build moveit package
-WORKDIR /root/workspace/src
+WORKDIR /root/ws/src
 RUN rosdep install -y --from-paths . --ignore-src --rosdistro melodic
-WORKDIR /root/workspace
+WORKDIR /root/ws
 RUN ["/bin/bash", "-c", "catkin config --extend /opt/ros/melodic --cmake-args -DCMAKE_BUILD_TYPE=Releasee"]
 
 RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc

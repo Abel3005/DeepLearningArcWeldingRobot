@@ -1,24 +1,22 @@
 version: '3'
 
 services:
-  ros_core_server:
+  ros_melodic:
     build: .
-    command: /bin/bash -c "while sleep 1000; do :; done"
+    entrypoint: /ros_entrypoint.sh roscore
 
     environment:
       - DISPLAY=${DISPLAY}
-    
+      - QT_X11_NO_MITSHM=1  #fix some QT bugs
     volumes:
       #for GUI
       - /tmp/.X11-unix:/tmp/.X11-unix
       #access device at host
       - /dev:/dev
       #workspace
+      - ./ws:/root/ws
 
-
-      - ./workspace:/root/workspace
-
-    working_dir: /root/workspace
+    working_dir: /root/ws
 
 
     #--privileged
